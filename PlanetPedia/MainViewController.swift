@@ -8,7 +8,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
     @IBOutlet weak var planetCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -19,16 +19,23 @@ class MainViewController: UIViewController {
     }
     
     // 데이터 전달
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let cell = sender as? UICollectionViewCell, let index = planetCollectionView.indexPath(for: cell) {
-            let selected = solarSystemPlanets[index.item]
-            if let vc = segue.destination as? PlanetDetailViewController {
-                vc.planet = selected
-            }
-            
-        }
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        if let cell = sender as? UICollectionViewCell, let index = planetCollectionView.indexPath(for: cell) {
+    //            let selected = solarSystemPlanets[index.item]
+    //            if let vc = segue.destination as? PlanetDetailViewController {
+    //                vc.planet = selected
+    //            }
+    //
+    //        }
+    //    }
+    
+    // 데이터 전달2: 세그웨이가 vc를 직접 만들지 않도록
+    @IBSegueAction func makeDetailVC(_ coder: NSCoder, sender: Any?) -> PlanetDetailViewController? {
+        guard let cell = sender as? UICollectionViewCell, let indexPath = planetCollectionView.indexPath(for: cell) else { return nil }
+        let selected = solarSystemPlanets[indexPath.item]
+        return PlanetDetailViewController(planet: selected, coder: coder)
     }
-
+    
 }
 /*
  UICollectionViewDelegate: 셀과 사용자가 상호작용할 때 (셀을 선택하거나 스크롤 등) 어떤 동작을 할지 설정.
@@ -39,7 +46,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return solarSystemPlanets.count
     }
-        
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PlanetCollectionViewCell
         let target = solarSystemPlanets[indexPath.item]
@@ -47,7 +54,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.planetNameLabel.text = target.englishName
         return cell
     }
-            
+    
 }
 
 extension MainViewController:UICollectionViewDelegateFlowLayout {
