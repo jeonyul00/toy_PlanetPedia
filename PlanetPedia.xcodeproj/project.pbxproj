@@ -15,6 +15,7 @@
 		AB08E2FD2CC636FC00A661B6 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AB08E2FC2CC636FC00A661B6 /* Base */; };
 		AB08E3062CC637CB00A661B6 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB08E3052CC637CB00A661B6 /* Planet.swift */; };
 		AB08E3092CC63E7000A661B6 /* PlanetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB08E3082CC63E7000A661B6 /* PlanetCollectionViewCell.swift */; };
+		AB08E30B2CC7489200A661B6 /* PlanetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB08E30A2CC7489200A661B6 /* PlanetDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		AB08E2FE2CC636FC00A661B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB08E3052CC637CB00A661B6 /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
 		AB08E3082CC63E7000A661B6 /* PlanetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetCollectionViewCell.swift; sourceTree = "<group>"; };
+		AB08E30A2CC7489200A661B6 /* PlanetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				AB08E2F02CC636FB00A661B6 /* AppDelegate.swift */,
 				AB08E2F22CC636FB00A661B6 /* SceneDelegate.swift */,
 				AB08E2F42CC636FB00A661B6 /* MainViewController.swift */,
+				AB08E30A2CC7489200A661B6 /* PlanetDetailViewController.swift */,
 				AB08E2F62CC636FB00A661B6 /* Main.storyboard */,
 				AB08E2F92CC636FC00A661B6 /* Assets.xcassets */,
 				AB08E2FB2CC636FC00A661B6 /* LaunchScreen.storyboard */,
@@ -164,6 +167,7 @@
 				AB08E2F12CC636FB00A661B6 /* AppDelegate.swift in Sources */,
 				AB08E3092CC63E7000A661B6 /* PlanetCollectionViewCell.swift in Sources */,
 				AB08E2F32CC636FB00A661B6 /* SceneDelegate.swift in Sources */,
+				AB08E30B2CC7489200A661B6 /* PlanetDetailViewController.swift in Sources */,
 				AB08E3062CC637CB00A661B6 /* Planet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

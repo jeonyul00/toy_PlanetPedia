@@ -17,7 +17,17 @@ class MainViewController: UIViewController {
         planetCollectionView.delegate = self
         planetCollectionView.showsVerticalScrollIndicator = false
     }
-
+    
+    // 데이터 전달
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let cell = sender as? UICollectionViewCell, let index = planetCollectionView.indexPath(for: cell) {
+            let selected = solarSystemPlanets[index.item]
+            if let vc = segue.destination as? PlanetDetailViewController {
+                vc.planet = selected
+            }
+            
+        }
+    }
 
 }
 /*
@@ -29,8 +39,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return solarSystemPlanets.count
     }
-    
-    // 셀이 표시되기 직전에 호출
+        
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PlanetCollectionViewCell
         let target = solarSystemPlanets[indexPath.item]
