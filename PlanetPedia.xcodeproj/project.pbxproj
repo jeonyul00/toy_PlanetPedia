@@ -16,6 +16,9 @@
 		AB08E3062CC637CB00A661B6 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB08E3052CC637CB00A661B6 /* Planet.swift */; };
 		AB08E3092CC63E7000A661B6 /* PlanetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB08E3082CC63E7000A661B6 /* PlanetCollectionViewCell.swift */; };
 		AB08E30B2CC7489200A661B6 /* PlanetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB08E30A2CC7489200A661B6 /* PlanetDetailViewController.swift */; };
+		AB76CFCC2CC86A1A00F82C51 /* PlanetSummaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76CFCB2CC86A1A00F82C51 /* PlanetSummaryCollectionViewCell.swift */; };
+		AB76CFCE2CC86C5D00F82C51 /* PlanetInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76CFCD2CC86C5D00F82C51 /* PlanetInfoCollectionViewCell.swift */; };
+		AB76CFD02CC86DFD00F82C51 /* SatelliteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76CFCF2CC86DFD00F82C51 /* SatelliteCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		AB08E3052CC637CB00A661B6 /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
 		AB08E3082CC63E7000A661B6 /* PlanetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetCollectionViewCell.swift; sourceTree = "<group>"; };
 		AB08E30A2CC7489200A661B6 /* PlanetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailViewController.swift; sourceTree = "<group>"; };
+		AB76CFCB2CC86A1A00F82C51 /* PlanetSummaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetSummaryCollectionViewCell.swift; sourceTree = "<group>"; };
+		AB76CFCD2CC86C5D00F82C51 /* PlanetInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetInfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		AB76CFCF2CC86DFD00F82C51 /* SatelliteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatelliteCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,9 @@
 			isa = PBXGroup;
 			children = (
 				AB08E3082CC63E7000A661B6 /* PlanetCollectionViewCell.swift */,
+				AB76CFCB2CC86A1A00F82C51 /* PlanetSummaryCollectionViewCell.swift */,
+				AB76CFCD2CC86C5D00F82C51 /* PlanetInfoCollectionViewCell.swift */,
+				AB76CFCF2CC86DFD00F82C51 /* SatelliteCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -164,8 +173,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB08E2F52CC636FB00A661B6 /* MainViewController.swift in Sources */,
+				AB76CFD02CC86DFD00F82C51 /* SatelliteCollectionViewCell.swift in Sources */,
 				AB08E2F12CC636FB00A661B6 /* AppDelegate.swift in Sources */,
+				AB76CFCC2CC86A1A00F82C51 /* PlanetSummaryCollectionViewCell.swift in Sources */,
 				AB08E3092CC63E7000A661B6 /* PlanetCollectionViewCell.swift in Sources */,
+				AB76CFCE2CC86C5D00F82C51 /* PlanetInfoCollectionViewCell.swift in Sources */,
 				AB08E2F32CC636FB00A661B6 /* SceneDelegate.swift in Sources */,
 				AB08E30B2CC7489200A661B6 /* PlanetDetailViewController.swift in Sources */,
 				AB08E3062CC637CB00A661B6 /* Planet.swift in Sources */,
