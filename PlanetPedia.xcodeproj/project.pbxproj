@@ -19,6 +19,7 @@
 		AB76CFCC2CC86A1A00F82C51 /* PlanetSummaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76CFCB2CC86A1A00F82C51 /* PlanetSummaryCollectionViewCell.swift */; };
 		AB76CFCE2CC86C5D00F82C51 /* PlanetInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76CFCD2CC86C5D00F82C51 /* PlanetInfoCollectionViewCell.swift */; };
 		AB76CFD02CC86DFD00F82C51 /* SatelliteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB76CFCF2CC86DFD00F82C51 /* SatelliteCollectionViewCell.swift */; };
+		AB8E459F2CC94704004A580C /* RoundedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E459E2CC94704004A580C /* RoundedCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		AB76CFCB2CC86A1A00F82C51 /* PlanetSummaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetSummaryCollectionViewCell.swift; sourceTree = "<group>"; };
 		AB76CFCD2CC86C5D00F82C51 /* PlanetInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetInfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		AB76CFCF2CC86DFD00F82C51 /* SatelliteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatelliteCollectionViewCell.swift; sourceTree = "<group>"; };
+		AB8E459E2CC94704004A580C /* RoundedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				AB76CFCB2CC86A1A00F82C51 /* PlanetSummaryCollectionViewCell.swift */,
 				AB76CFCD2CC86C5D00F82C51 /* PlanetInfoCollectionViewCell.swift */,
 				AB76CFCF2CC86DFD00F82C51 /* SatelliteCollectionViewCell.swift */,
+				AB8E459E2CC94704004A580C /* RoundedCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			files = (
 				AB08E2F52CC636FB00A661B6 /* MainViewController.swift in Sources */,
 				AB76CFD02CC86DFD00F82C51 /* SatelliteCollectionViewCell.swift in Sources */,
+				AB8E459F2CC94704004A580C /* RoundedCollectionViewCell.swift in Sources */,
 				AB08E2F12CC636FB00A661B6 /* AppDelegate.swift in Sources */,
 				AB76CFCC2CC86A1A00F82C51 /* PlanetSummaryCollectionViewCell.swift in Sources */,
 				AB08E3092CC63E7000A661B6 /* PlanetCollectionViewCell.swift in Sources */,

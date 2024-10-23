@@ -11,6 +11,8 @@ class PlanetDetailViewController: UIViewController {
     
     @IBOutlet weak var detailCollectionView: UICollectionView!
     @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var dimView: UIView!
+    
     private let planet: Planet
     
     init?(planet: Planet, coder:NSCoder) {
@@ -25,13 +27,29 @@ class PlanetDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         detailCollectionView.dataSource = self
+        detailCollectionView.delegate = self
         let img = UIImage(named: "\(planet.englishName.lowercased())")
         backgroundImageView.image = img
         setupLayout()
     }
+        
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        // 중요
+        adjustContentInset() // 얘는 cell의 높이를 계산해야 해서 cell이 생성된 후에 호출되어야 하지. viewDidAppear에서 하면 어색함, viewDidAppear보다는 빨라야함
+    }
+    
+    func adjustContentInset() {
+        let indexPath = IndexPath(item: 0, section: 0)
+        if let first = detailCollectionView.cellForItem(at: indexPath) {
+            let topInset = detailCollectionView.frame.height - first.frame.height - view.safeAreaInsets.top - view.safeAreaInsets.bottom - 20
+            detailCollectionView.contentInset = UIEdgeInsets(top: topInset, left: 0, bottom: 0, right: 0)
+            // cell을 원하는 위치로 이동
+            detailCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .bottom)
+        }
+    }
     
     func setupLayout() {
-        
         // 컴포지셔널 레이아웃 생성
         let layout = UICollectionViewCompositionalLayout {  sectionIndex, environment in
             switch sectionIndex {
@@ -57,6 +75,24 @@ class PlanetDetailViewController: UIViewController {
                 section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20)
                 section.interGroupSpacing = 20
                 return section
+                
+                // 위성 정보
+            case 2:
+                // item 크기 생성
+                var size = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(200))
+                // item 객체 생성
+                let item = NSCollectionLayoutItem(layoutSize: size)
+                size = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.6), heightDimension: .estimated(200))                
+                // 그룹 생성
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitems: [item])
+                // 섹션 생성
+                let section = NSCollectionLayoutSection(group: group)
+                // 섹션 여백
+                section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20)
+                section.interGroupSpacing = 20
+                // 스크롤 활성화
+                section.orthogonalScrollingBehavior = .groupPaging
+                return section
             default:
                 // item 크기 생성
                 let size = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(200))
@@ -75,7 +111,7 @@ class PlanetDetailViewController: UIViewController {
         // 컬렉션 뷰 레이아웃을 CompositionalLayout으로 변경
         detailCollectionView.collectionViewLayout = layout
     }
-            
+    
 }
 
 extension PlanetDetailViewController:UICollectionViewDataSource {
@@ -108,9 +144,26 @@ extension PlanetDetailViewController:UICollectionViewDataSource {
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PlanetInfoCollectionViewCell.self), for: indexPath) as! PlanetInfoCollectionViewCell
-            cell.titleLabel.text = "distance"
-            cell.valueLabel.text = "value"
-            cell.unitLabel.text = "km"
+            switch indexPath.item {
+            case 0:
+                cell.titleImageView.image = UIImage(systemName: "ruler")
+                cell.titleLabel.text = "크기"
+                cell.valueLabel.text = planet.sizeString
+                cell.unitLabel.text = "km"
+            case 1:
+                cell.titleImageView.image = UIImage(systemName: "arrow.circlepath")
+                cell.titleLabel.text = "공전 주기"
+                cell.valueLabel.text = planet.orbitalPeriodString
+                cell.unitLabel.text = planet.orbitalPeriod > 365 ? "년" : "일"
+            case 2:
+                cell.titleImageView.image = UIImage(systemName: "airplane")
+                cell.titleLabel.text = "지구와의 거리"
+                cell.valueLabel.text = planet.distanceString
+                cell.unitLabel.text = "km"
+            default:
+                break
+            }
+            
             return cell
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: SatelliteCollectionViewCell.self), for: indexPath) as! SatelliteCollectionViewCell
@@ -122,4 +175,8 @@ extension PlanetDetailViewController:UICollectionViewDataSource {
             fatalError("check section count")
         }
     }
+}
+
+extension PlanetDetailViewController: UICollectionViewDelegate {
+    
 }

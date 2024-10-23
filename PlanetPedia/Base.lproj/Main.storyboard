@@ -93,6 +93,10 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mars" translatesAutoresizingMaskIntoConstraints="NO" id="M50-kQ-2D2">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3AE-it-FHP">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4As-kV-QcK">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -282,10 +286,14 @@
                             <constraint firstItem="M50-kQ-2D2" firstAttribute="top" secondItem="6W8-AM-ZNt" secondAttribute="top" id="06H-ed-RbG"/>
                             <constraint firstItem="VUG-TB-GLd" firstAttribute="trailing" secondItem="4As-kV-QcK" secondAttribute="trailing" id="1uH-YR-1h6"/>
                             <constraint firstItem="4As-kV-QcK" firstAttribute="top" secondItem="6W8-AM-ZNt" secondAttribute="top" id="CFz-eY-3bq"/>
+                            <constraint firstItem="3AE-it-FHP" firstAttribute="trailing" secondItem="M50-kQ-2D2" secondAttribute="trailing" id="DPY-sj-Et8"/>
                             <constraint firstItem="4As-kV-QcK" firstAttribute="leading" secondItem="VUG-TB-GLd" secondAttribute="leading" id="Itm-uH-Htc"/>
+                            <constraint firstItem="3AE-it-FHP" firstAttribute="bottom" secondItem="M50-kQ-2D2" secondAttribute="bottom" id="ZmW-SE-H7A"/>
                             <constraint firstAttribute="bottom" secondItem="M50-kQ-2D2" secondAttribute="bottom" id="fCj-Lp-lgU"/>
                             <constraint firstItem="M50-kQ-2D2" firstAttribute="leading" secondItem="VUG-TB-GLd" secondAttribute="leading" id="igs-ZJ-Nea"/>
                             <constraint firstItem="VUG-TB-GLd" firstAttribute="trailing" secondItem="M50-kQ-2D2" secondAttribute="trailing" id="kKd-7v-Cmg"/>
+                            <constraint firstItem="3AE-it-FHP" firstAttribute="leading" secondItem="M50-kQ-2D2" secondAttribute="leading" id="tQ6-GV-BcQ"/>
+                            <constraint firstItem="3AE-it-FHP" firstAttribute="top" secondItem="M50-kQ-2D2" secondAttribute="top" id="wmD-Qe-WRF"/>
                             <constraint firstAttribute="bottom" secondItem="4As-kV-QcK" secondAttribute="bottom" id="xuY-4n-yAl"/>
                         </constraints>
                     </view>
@@ -293,6 +301,7 @@
                     <connections>
                         <outlet property="backgroundImageView" destination="M50-kQ-2D2" id="eAh-oG-Uv3"/>
                         <outlet property="detailCollectionView" destination="4As-kV-QcK" id="NlP-hh-cBW"/>
+                        <outlet property="dimView" destination="3AE-it-FHP" id="e7n-AB-zRV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uBg-HZ-eHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -322,7 +331,7 @@
         <image name="mars" width="2404.5" height="1803"/>
         <image name="mars-icon" width="256" height="256"/>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

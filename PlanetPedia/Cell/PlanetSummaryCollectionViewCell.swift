@@ -13,11 +13,4 @@ class PlanetSummaryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var engNameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    
-    
-    
-    
-    
-    
-    
 }
