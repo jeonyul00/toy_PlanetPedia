@@ -12,7 +12,7 @@ class PlanetDetailViewController: UIViewController {
     @IBOutlet weak var detailCollectionView: UICollectionView!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var dimView: UIView!
-    
+    var initialOffsetY = CGFloat(0)
     private let planet: Planet
     
     init?(planet: Planet, coder:NSCoder) {
@@ -36,7 +36,10 @@ class PlanetDetailViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         // 중요
-        adjustContentInset() // 얘는 cell의 높이를 계산해야 해서 cell이 생성된 후에 호출되어야 하지. viewDidAppear에서 하면 어색함, viewDidAppear보다는 빨라야함
+        DispatchQueue.main.async {
+            self.adjustContentInset() // 얘는 cell의 높이를 계산해야 해서 cell이 생성된 후에 호출되어야 하지. viewDidAppear에서 하면 어색함, viewDidAppear보다는 빨라야함
+        }
+        
     }
     
     func adjustContentInset() {
@@ -46,6 +49,7 @@ class PlanetDetailViewController: UIViewController {
             detailCollectionView.contentInset = UIEdgeInsets(top: topInset, left: 0, bottom: 0, right: 0)
             // cell을 원하는 위치로 이동
             detailCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .bottom)
+            initialOffsetY = detailCollectionView.contentOffset.y
         }
     }
     
@@ -178,5 +182,19 @@ extension PlanetDetailViewController:UICollectionViewDataSource {
 }
 
 extension PlanetDetailViewController: UICollectionViewDelegate {
+    // 스크롤 위치
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let yOffest = scrollView.contentOffset.y
+        let half = scrollView.bounds.height / 2
+        
+        if yOffest <= initialOffsetY {
+            dimView.alpha = 0.0
+        } else if yOffest <= -half {
+            let progress = (initialOffsetY - yOffest) / (initialOffsetY + half)
+            dimView.alpha = progress * 0.5
+        } else {
+            dimView.alpha = 0.5
+        }
+    }
     
 }
